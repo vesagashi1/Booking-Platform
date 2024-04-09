@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import viewImage from './images/view.jpg';
+import SearchForm from './SearchForm'; 
 
 
 const Navbar = () => {
@@ -9,10 +10,10 @@ const Navbar = () => {
        <div className="navbar-brand montserrat-alternates-regular">BOOKit</div>
       <ul className="navbar-nav">
         {/* <li className="nav-item"><a href="/">Home</a></li>
-        <li className="nav-item"><a href="/about">About</a></li>
-        <li className="nav-item"><a href="/services">Services</a></li> */}
-        <li className="nav-item"><a href="/register">Register</a></li>
-        <li className="nav-item"><a href="/logIn">Log In</a></li>
+        <li className="nav-item"><a href="/about">About</a></li>*/}
+        <li className="nav-item p"><a href="/partner">Become a partner</a></li> 
+        <li className="nav-item c"><a href="/register">Register</a></li>
+        <li className="nav-item c"><a href="/logIn">Log In</a></li>
       </ul>
     </nav>
     
@@ -53,8 +54,14 @@ function App() {
         <Navbar />
         <SecondNavbar /> 
       </header>
-      <ViewImage />
-      <UnderImageDiv/>{}
+      <div className="image-container">
+        <ViewImage /> {/* Render the image */}
+        <div className="search-form-container">
+          <SearchForm /> {/* Render the search form */}
+        </div>
+      </div>
+      <UnderImageDiv/>
+     
     </div>
   );
 }

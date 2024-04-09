@@ -51,9 +51,17 @@ body {
   border-radius: 5px;
 }
 
-.nav-item a:hover {
+.p a:hover {
+  transition: 0.4s ease-in;
+  background-color:lightblue ;
+}
+
+
+
+.c :hover {
   transition: 0.4s ease-in;
   background-color: #a7a1a1;
+  border-radius: 5px;
   
 }
 
@@ -88,17 +96,71 @@ body {
 
 }
 
-.image-cont{
+
+
+/* App.css */
+
+.image-cont {
+  height: 80vh;
   width: 100vw;
-  height: 75vh;
 }
 
-.fotoja{
+.image-container {
+  position: relative;
   width: 100%;
   height: 100%;
-  opacity: 0.9;
-  
 }
+
+.fotoja {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.search-form-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%; /* Adjust width to make it smaller */
+  max-width: 500px; /* Limit maximum width */
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.search-form-container input[type='text'],
+.search-form-container input[type='date'],
+.search-form-container input[type='number'],
+.search-form-container select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+}
+
+.search-form-container button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color:  rgb(94, 188, 219);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.search-form-container button:hover {
+  background-color:#3c6da2;
+}
+
+
+
 
 .under{
   background-color: lightblue;
