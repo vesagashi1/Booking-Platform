@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import viewImage from './images/view.jpg';
 import SearchForm from './SearchForm';
-
+import ServicesPage from './Services';
 
 function App() {
   return (
@@ -35,6 +35,7 @@ function App() {
         </div>
         <div className="under bg-lightblue w-full h-20"></div>
       </main>
+      <ServicesPage /> {/* Render the ServicesPage component */}
     </div>
   );
 }
