@@ -2,10 +2,14 @@ import React from 'react';
 import './App.css';
 import viewImage from './images/view.jpg';
 import SearchForm from './SearchForm';
-
+import Register from './register';
+import Navbar from './navbar';
+//import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'; // Importimi i BrowserRouter dhe Route nga React Router
 
 function App() {
+
   return (
+    
     <div className="App min-h-screen flex flex-col bg-gray-100">
       <header className="flex-shrink-0">
         <nav className="flex justify-between items-center bg-white text-gray-700 p-2">
@@ -30,13 +34,18 @@ function App() {
           <div className="search-form-container absolute top-80 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-3/4 h-128 max-w-md p-2 bg-white bg-opacity-80 rounded-lg shadow-md z-10">
                 <SearchForm />
              </div>
-
-
         </div>
         <div className="under bg-lightblue w-full h-20"></div>
+        <Register/>
+       
+        
       </main>
     </div>
   );
+
+
 }
 
+
 export default App;
+
