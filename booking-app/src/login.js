@@ -1,25 +1,11 @@
-
 import React from 'react';
+import './App.css'
 
-import { Link } from 'react-router-dom'; 
-
-const Register = () => {
+const Login = () => {
   return (
-    <div className="container mx-auto mt-10">
-      <h2 className="text-2xl font-bold mb-5">Register</h2>
+    <div className="container mx-auto mt-10 max-w-md bg-white shadow-md rounded-md p-6">
+      <h2 className="text-2xl font-bold mb-5 text-center">Log In</h2>
       <form>
-        <div className="mb-4">
-          <label htmlFor="name" className="block text-sm font-medium text-gray-700">
-            Name
-          </label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            className="form-input mt-1 block w-full border-gray-300 rounded-md"
-            placeholder="Enter your name"
-          />
-        </div>
         <div className="mb-4">
           <label htmlFor="email" className="block text-sm font-medium text-gray-700">
             Email
@@ -32,7 +18,7 @@ const Register = () => {
             placeholder="Enter your email"
           />
         </div>
-        <div className="mb-4">
+        <div className="mb-6">
           <label htmlFor="password" className="block text-sm font-medium text-gray-700">
             Password
           </label>
@@ -44,34 +30,18 @@ const Register = () => {
             placeholder="Enter your password"
           />
         </div>
-        <div className="mb-4">
-          <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-700">
-            Confirm Password
-          </label>
-          <input
-            type="password"
-            id="confirmPassword"
-            name="confirmPassword"
-            className="form-input mt-1 block w-full border-gray-300 rounded-md"
-            placeholder="Confirm your password"
-          />
-        </div>
         <button
           type="submit"
           className="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
         >
-          Register
+          Log In
         </button>
       </form>
-      <div className="mt-4">
-        <p>Already have an account?</p>
-        {/* Navigimi për formën e loginit */}
-        <Link to="/login" className="text-blue-500 hover:underline focus:outline-none">
-          Log in
-        </Link>
+      <div className="mt-4 text-center">
+        <p>Don't have an account? <button className="text-blue-500 hover:underline focus:outline-none">Register</button></p>
       </div>
     </div>
   );
 };
 
-export default Register;
+export default Login;
