@@ -4,6 +4,7 @@ import Register from './register';
 import viewImage from './images/view.jpg';
 import SearchForm from './SearchForm';
 import ServicesPage from './Services';
+import BecomePartner from './partner';
 
 function Home() {
   return (
@@ -48,6 +49,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/register" element={<Register />} />
             <Route path="/services" element={<ServicesPage />} />
+            <Route path="/partner" element={<BecomePartner />} />
           </Routes>
         </main>
       </div>
