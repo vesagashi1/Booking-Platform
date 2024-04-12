@@ -1,12 +1,10 @@
-
 import React from 'react';
-import './App.css';
+import './App.js'
 
 const Register = () => {
-
   return (
-    <div className="container mx-auto mt-10">
-      <h2 className="text-2xl font-bold mb-5">Register</h2>
+    <div className="container mx-auto mt-10 max-w-md bg-white shadow-md rounded-md p-6">
+      <h2 className="text-2xl font-bold mb-5 text-center">Register</h2>
       <form>
         <div className="mb-4">
           <label htmlFor="name" className="block text-sm font-medium text-gray-700">
@@ -44,7 +42,7 @@ const Register = () => {
             placeholder="Enter your password"
           />
         </div>
-        <div className="mb-4">
+        <div className="mb-6">
           <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-700">
             Confirm Password
           </label>
@@ -63,9 +61,8 @@ const Register = () => {
           Register
         </button>
       </form>
-      <div className="mt-4">
-        <p>Already have an account?</p>
-        <button className="text-blue-500 hover:underline focus:outline-none">Log in</button>
+      <div className="mt-4 text-center">
+        <p>Already have an account? <button className="text-blue-500 hover:underline focus:outline-none">Log in</button></p>
       </div>
     </div>
   );

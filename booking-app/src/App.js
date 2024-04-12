@@ -5,10 +5,11 @@ import viewImage from './images/view.jpg';
 import SearchForm from './SearchForm';
 import ServicesPage from './Services';
 import BecomePartner from './partner';
+import LogIn from './login';
 
 function Home() {
   return (
-    <div className="image-container relative w-full h-screen">
+    <div className="image-container relative w-full h-screen overflow-hidden">
       <img src={viewImage} alt="homeImage" className="w-full h-full object-cover" />
       <div className="search-form-container absolute top-80 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-3/4 h-128 max-w-md p-2 bg-white bg-opacity-80 rounded-lg shadow-md z-10">
         <SearchForm />
@@ -32,7 +33,7 @@ function App() {
                 <Link to="/register" className="text-gray-800 no-underline px-2 py-1 rounded transition duration-400 ease-in hover:bg-gray-300 hover:border-gray-500">Register</Link>
               </li>
               <li>
-                <Link to="/logIn" className="text-gray-800 no-underline px-2 py-1 rounded transition duration-400 ease-in hover:bg-gray-300 hover:border-gray-500">Log In</Link>
+                <Link to="/login" className="text-gray-800 no-underline px-2 py-1 rounded transition duration-400 ease-in hover:bg-gray-300 hover:border-gray-500">Log In</Link>
               </li>
             </ul>
           </nav>
@@ -44,12 +45,13 @@ function App() {
             </ul>
           </div>
         </header>
-        <main className="flex-grow">
+        <main className="flex-grow overflow-x-hidden overflow-y-hidden border-box">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/register" element={<Register />} />
             <Route path="/services" element={<ServicesPage />} />
             <Route path="/partner" element={<BecomePartner />} />
+            <Route path="/login" element={<LogIn />} />
           </Routes>
         </main>
       </div>
