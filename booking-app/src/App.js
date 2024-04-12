@@ -1,8 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
-import Register from './Register';
+import Register from './register';
 import viewImage from './images/view.jpg';
 import SearchForm from './SearchForm';
+import ServicesPage from './Services';
 
 function Home() {
   return (
@@ -46,6 +47,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/register" element={<Register />} />
+            <Route path="/services" element={<ServicesPage />} />
           </Routes>
         </main>
       </div>
