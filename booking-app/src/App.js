@@ -6,6 +6,7 @@ import SearchForm from './SearchForm';
 import ServicesPage from './Services';
 import BecomePartner from './partner';
 import LogIn from './login';
+import AboutUs from './aboutus';
 
 function Home() {
   return (
@@ -52,6 +53,7 @@ function App() {
             <Route path="/services" element={<ServicesPage />} />
             <Route path="/partner" element={<BecomePartner />} />
             <Route path="/login" element={<LogIn />} />
+            <Route path="/about" element={<AboutUs />} />
           </Routes>
         </main>
       </div>
