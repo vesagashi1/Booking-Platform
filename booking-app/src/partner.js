@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom'; // Import Link
+import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 const PartnerRegistration = ({ isLoggedIn }) => {
   const [formData, setFormData] = useState({
@@ -8,6 +9,7 @@ const PartnerRegistration = ({ isLoggedIn }) => {
     ageConfirm: false,
     sellOption: '',
   });
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -16,24 +18,33 @@ const PartnerRegistration = ({ isLoggedIn }) => {
       [name]: type === 'checkbox' ? checked : value,
     }));
   };
+  
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission here (e.g., send data to backend)
-    console.log(formData);
-    // Redirect logic can be added here (e.g., using window.location.href)
-    window.location.href = '/login'; // Redirect to login page after form submission
+    try {
+      const response = await axios.post('http://localhost:3005/api/partner', formData);
+
+      if (response.status === 200) {
+        window.location.href = '/login'; // Redirect to login page on successful registration
+      } else {
+        setErrorMessage('Registration failed. Please try again later.');
+      }
+    } catch (error) {
+      console.error('Error registering:', error);
+      setErrorMessage('Registration failed. Please try again later.');
+    }
   };
 
   if (isLoggedIn) {
-    // Redirect logic can be added here if needed
-    window.location.href = '/login'; // Redirect to login page if user is logged in
-    return null; // Return null to prevent rendering the registration form
+    window.location.href = '/login'; // Redirect if already logged in
+    return null;
   }
 
   return (
     <div className="container mx-auto mt-10 max-w-md bg-white shadow-md rounded-md p-6">
       <h2 className="text-2xl font-bold mb-5 text-center">Become a Partner</h2>
+      {errorMessage && <div className="text-red-500 mb-4">{errorMessage}</div>}
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
           <label htmlFor="name" className="block text-sm font-medium text-gray-700">
@@ -48,6 +59,7 @@ const PartnerRegistration = ({ isLoggedIn }) => {
             className="form-input mt-1 block w-full border-gray-300 rounded-md"
             placeholder="Enter your full name"
             required
+            autoComplete="name" // Add autocomplete attribute
           />
         </div>
         <div className="mb-4">
@@ -63,6 +75,7 @@ const PartnerRegistration = ({ isLoggedIn }) => {
             className="form-input mt-1 block w-full border-gray-300 rounded-md"
             placeholder="Enter your email"
             required
+            autoComplete="email" // Add autocomplete attribute
           />
         </div>
         <div className="mb-4">
@@ -77,6 +90,7 @@ const PartnerRegistration = ({ isLoggedIn }) => {
             onChange={handleChange}
             className="form-checkbox mt-1"
             required
+            autoComplete="off" // Disable autocomplete for checkboxes if not needed
           />
           <span className="ml-2 text-gray-600">I confirm that I am 18 years old or older.</span>
         </div>
@@ -91,6 +105,7 @@ const PartnerRegistration = ({ isLoggedIn }) => {
             onChange={handleChange}
             className="form-select mt-1 block w-full border-gray-300 rounded-md"
             required
+            autoComplete="sellOption" // Add autocomplete attribute
           >
             <option value="">Select an option</option>
             <option value="propertiesForRent">Properties for Rent</option>
@@ -106,7 +121,12 @@ const PartnerRegistration = ({ isLoggedIn }) => {
         </button>
       </form>
       <div className="mt-4 text-center">
-        <p>Already have an account? <Link to="/login" className="text-blue-500 hover:underline focus:outline-none">Log in</Link></p>
+        <p>
+          Already have an account?{' '}
+          <Link to="/login" className="text-blue-500 hover:underline focus:outline-none">
+            Log in
+          </Link>
+        </p>
       </div>
     </div>
   );
